@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ESP32 Web BLE App</title>
+    <title>Plot PCR BLE App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="favicon.ico">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -94,7 +94,7 @@
             bleStateContainer.innerHTML = "Web Bluetooth API is not available in this browser/device!";
             return false
         }
-        bleStateContainer.innerHTML ="Web Bluetooth API supported in this browser";
+        console.log('Web Bluetooth API supported in this browser');
         return true
     }
 
@@ -103,7 +103,7 @@
         console.log('Initializing Bluetooth...');
         navigator.bluetooth.requestDevice({
             filters: [{name: deviceName}],
-            optionalServices: [bleService]
+            //optionalServices: [bleService]
         })
         .then(device => {
             console.log('Device Selected:', device.name);
